@@ -1,0 +1,13 @@
+{
+    "name": "21600WJK9529/HopitalityResort",
+    "description": "F3 app",
+    "require": {
+        "rmccue/requests": ">=1.0"
+    },
+    "authors": [
+      {
+        "name": "21600WJK9529",
+        "email": "test@gmail.com"
+      }
+    ]
+  }
