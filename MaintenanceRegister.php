@@ -1,6 +1,6 @@
 <?php 
     require_once("vendor/autoload.php");
-    require_once("Ex.php");
+    require_once("Maintenance.php");
 ?>
 
 <!--"id","fName", "lName","email","facility","phoneNo"-->
@@ -69,6 +69,7 @@ Phone no.: <br>
         "facility" => $facility,
         "phoneNo" => $phoneNo
     );
+    $obj->create($id, $fName, $lName, $email, $facility, $phoneNo);
 
     // $data_string = json_encode($arr);
     // var_dump($data_string);

@@ -1,12 +1,21 @@
 <?php
 
 require_once ("vendor/autoload.php");
-
+//"id","fName", "lName","email","facility","phoneNo"
 class Maintenance {
-    public function create($maintenance){
+    
+    public function create($id,$fName,$lName,$email,$facility,$phoneNo){
         try{
-            $url = "http://localhost:8080/HospitalityResort/maintenance/create/{$maintenance}";
-            $request = Requests::get($url, array('Content-type' => 'application/json'));
+            $params = array(
+                "id" => $id,
+                "fName" => $fName,
+                "lName" => $lName,
+                "email" => $email,
+                "facility" => $facility,
+                "phoneNo" => $phoneNo
+            );
+            $url = "http://localhost:8080/HospitalityResort/maintenance/create/maintenanceRegister";
+            $request = Requests::post($url, array('Content-type' => 'application/json'), json_encode($params));
             $data = json_decode($request->body);
         }catch(Exception $e){
             return $e;
@@ -26,8 +35,8 @@ class Maintenance {
         }catch(Exception $e){
             return $e;
         }
-        var_dump($data);
-        exit;
+        // var_dump($data);
+        // exit;
     }
 
 }
