@@ -66,14 +66,6 @@ $email = $_POST['email'];
 $facility = $_POST['facility'];
 $phoneNo = $_POST['phoneNo'];
 
-$arr = array (
-    "id" => $id,
-    "fName" => $fName,
-    "lName" => $lName,
-    "email" => $email,
-    "facility" => $facility,
-    "phoneNo" => $phoneNo
-);
 $obj = new MaintenanceFunctions();
 $obj->create($id, $fName, $lName, $email, $facility, $phoneNo);
 
