@@ -1,6 +1,6 @@
 <?php
 
-require_once ("vendor/autoload.php");
+require_once ("../../vendor/autoload.php");
 //"id","fName", "lName","email","facility","phoneNo"
 class MaintenanceFunctions {
     
@@ -29,8 +29,16 @@ class MaintenanceFunctions {
             $data = json_decode($request->body);           
         }catch(Exception $e){
             return $e;
-        }      
-        echo '<pre>' . var_export($data, true) . '</pre>';
+        }   
+        
+        echo nl2br("Id:      $data[0] \n\r");
+        echo nl2br("Name:    $data[1] \n\r");
+        echo nl2br("Surname: $data[2] \n\r");
+        echo nl2br("Email:   $data[3].\n\r");
+        echo nl2br("Facility:$data[4].\n\r");
+        echo nl2br("PhoneNo: $data[5].\n\r");
+        ;
+                
         exit;
     }
 
