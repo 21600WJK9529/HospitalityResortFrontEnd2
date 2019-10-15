@@ -10,22 +10,12 @@
     <body>
         <div class="container">
             <h1 style="text-align: center"> Menu</h1>
-            <a href="Views/Maintenance/MaintenanceCreate.php" class="menu-anchor"> 
-                <button type="button" class="btn btn-primary menu-button"> Create maintenance</button> <!--bootstrap style-->
+            <a href="Views/Maintenance/MaintenanceIndex.php" class="menu-anchor"> 
+                <button type="button" class="btn btn-primary menu-button"> Maintenance index</button> <!--bootstrap style-->
             </a>
-
-            <a href="Views/Maintenance/MaintenanceRead.php" class="menu-anchor"> 
-                <button type="button" class="menu-button"> Read maintenance</button> 
+            <a href="Views/Reception/ReceptionIndex.php" class="menu-anchor"> 
+                <button type="button" class="btn btn-primary menu-button"> Reception index</button> 
             </a>
-
-            <a href="Views/Maintenance/MaintenanceUpdate.php" class="menu-anchor"> 
-                <button type="button" class="menu-button">Update maintenance</button> 
-            </a>
-
-            <a href="Views/Maintenance/MaintenanceDelete.php" class="menu-anchor"> 
-                <button type="button" class="menu-button"> Delete maintenance</button> 
-            </a>
-
         </div>
     </body>
 
