@@ -13,17 +13,18 @@
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
     <li class="nav-item">
-        <a class="nav-link" href="../../index.php">Home</a>
+        <a class="nav-link" href="index.php">Home</a>
       </li>
+      
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Maintenance
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="../Maintenance/MaintenanceCreate.php">Create</a>
-          <a class="dropdown-item" href="../Maintenance/MaintenanceRead.php">Read</a>
-          <a class="dropdown-item" href="../Maintenance/MaintenanceUpdate.php">Update</a>
-          <a class="dropdown-item" href="../Maintenance/MaintenanceDelete.php">Delete</a>
+          <a class="dropdown-item" href="Views/Maintenance/MaintenanceCreate.php">Create</a>
+          <a class="dropdown-item" href="Views/Maintenance/MaintenanceRead.php">Read</a>
+          <a class="dropdown-item" href="Views/Maintenance/MaintenanceUpdate.php">Update</a>
+          <a class="dropdown-item" href="Views/Maintenance/MaintenanceDelete.php">Delete</a>
         </div>
         </li>
 
@@ -32,22 +33,22 @@
           Reception
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="../Reception/ReceptionCreate">Create</a>
-          <a class="dropdown-item" href="../Reception/ReceptionRead">Read</a>
-          <a class="dropdown-item" href="../Reception/ReceptionUpdate">Update</a>
-          <a class="dropdown-item" href="../Reception/ReceptionDelete">Delete</a>
+          <a class="dropdown-item" href="Views/Reception/ReceptionCreate">Create</a>
+          <a class="dropdown-item" href="Views/Reception/ReceptionRead">Read</a>
+          <a class="dropdown-item" href="Views/Reception/ReceptionUpdate">Update</a>
+          <a class="dropdown-item" href="Views/Reception/ReceptionDelete">Delete</a>
         </div>
         </li>
 
-        <!--<li>
+        <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           User
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="../User/UserCreate">Create</a>
-          <a class="dropdown-item" href="../User/UserRead">Read</a>
-          <a class="dropdown-item" href="../User/UserUpdate">Update</a>
-          <a class="dropdown-item" href="../User/UserDelete">Delete</a>-->
+          <a class="dropdown-item" href="Views/User/UserCreate">Create</a>
+          <a class="dropdown-item" href="Views/User/UserRead">Read</a>
+          <a class="dropdown-item" href="Views/User/UserUpdate">Update</a>
+          <a class="dropdown-item" href="Views/User/UserDelete">Delete</a>
         </div>
         </li>
 

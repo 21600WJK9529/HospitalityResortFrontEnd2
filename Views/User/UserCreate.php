@@ -1,5 +1,5 @@
 <?php 
-    require_once("../../Reception/ReceptionFunctions.php");
+    require_once("../../User/UserFunctions.php");
 ?>
     <head>
         <title>Create Page</title>
@@ -7,17 +7,16 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="http://localhost/practice/PHP/assets/css/style.css">
     </head>
+    
     <?php
-include 'ReceptionIndex.php'
+include 'UserIndex.php'
 ?>
-<div class="bg"></div>
 <body>
-
-
+<div class="bg"></div>
 <!--"id","fName", "lName","email","facility","phoneNo"-->
 <div class="container">
     <h2>
-    Create reception person
+    Create user
     </h2>
     <form method="post" action="#">
         <div class = "form-group">
@@ -39,18 +38,6 @@ include 'ReceptionIndex.php'
         </div>
 
         <div class = "form-group">
-        <!--Email-->
-        <label>Email:</label>
-        <input type="text" class="form-control" name="email" placeholder="email"> <br>
-        </div>
-
-        <div class = "form-group">
-        <!--Facility-->
-        <label>Facility:</label>
-        <input type="text" class="form-control" name="facility" placeholder="facility"> <br>
-        </div>
-
-        <div class = "form-group">
         <!--Phone-->
         <label>Phone no.:</label>
         <input type="text" class="form-control" name="phoneNo" placeholder="phoneNo"> <br>
@@ -61,16 +48,14 @@ include 'ReceptionIndex.php'
 </div>
 </body>
 <?php
-$id = $fName = $lName = $email = $facility = $phoneNo = "";
+$id = $fName = $lName = $phoneNo = "";
     
 $id = $_POST['id'];
 $fName = $_POST['fName'];
 $lName = $_POST['lName'];
-$email = $_POST['email'];
-$facility = $_POST['facility'];
 $phoneNo = $_POST['phoneNo'];
 
-$obj = new ReceptionFunctions();
-$obj->create($id, $fName, $lName, $email, $facility, $phoneNo);
+$obj = new UserFunctions();
+$obj->create($id, $fName, $lName, $phoneNo);
 
 ?>

@@ -1,5 +1,5 @@
 <?php 
-    require_once("../../Maintenance/MaintenanceFunctions.php");
+    require_once("../../User/UserFunctions.php");
 ?>
 <head>
         <title>Delete Page</title>
@@ -8,14 +8,14 @@
         <link rel="stylesheet" href="http://localhost/practice/PHP/assets/css/style.css">
     </head>
     <?php
-include 'MaintenanceIndex.php'
+include 'UserIndex.php'
 ?>
     <body>
     <div class="bg"></div>
 <!--"id","fName", "lName","email","facility","phoneNo"-->
 <div class="container">
     <h2>
-    Delete maintenance person
+    Delete user
     </h2>
     <form method="post" action="#">
         <div class = "form-group">
@@ -32,7 +32,7 @@ include 'MaintenanceIndex.php'
 
 <?php
 
-$obj = new MaintenanceFunctions();
+$obj = new UserFunctions();
 $id = ""; 
 $id = $_POST['id'];
 $obj->delete($id);
