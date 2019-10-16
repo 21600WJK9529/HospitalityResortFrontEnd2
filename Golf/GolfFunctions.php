@@ -2,17 +2,15 @@
 
 require_once ("../../vendor/autoload.php");
 //"id","fName", "lName","email","facility","phoneNo"
-class userFunctions {
+class GolfFunctions {
     
-    public function create($id,$fName,$lName,$phoneNo){
+    public function create($golfID,$golfName){
         try{
             $params = array(
-                "id" => $id,
-                "fName" => $fName,
-                "lName" => $lName,
-                "phoneNo" => $phoneNo
+                "golfID" => $golfID,
+                "golfName" => $golfName
             );
-            $url = "http://localhost:8080/HospitalityResort/user/create/user";
+            $url = "http://localhost:8080/HospitalityResort/golf/create/golfCreate";
             $request = Requests::post($url, array('Content-type' => 'application/json'), json_encode($params));
             $data = json_decode($request->body);
         }catch(Exception $e){
@@ -22,31 +20,26 @@ class userFunctions {
 
     public function read($id) {
         try{
-            $url = "http://localhost:8080/HospitalityResort/user/read/{$id}";
+            $url = "http://localhost:8080/HospitalityResort/golf/read/{$id}";
             $request = Requests::get($url, array('Content-type' => 'application/json'));
             $data = json_decode($request->body);           
         }catch(Exception $e){
             return $e;
         }   
-        
         echo nl2br("Id:      $data[0] \n\r");
         echo nl2br("Name:    $data[1] \n\r");
-        echo nl2br("Surname: $data[2] \n\r");
-        echo nl2br("PhoneNo: $data[3].\n\r");
         ;
                 
         exit;
     }
 
-    public function update($id,$fName,$lName,$email,$facility,$phoneNo){
+    public function update($id,$gName){
         try{
             $params = array(
                 "id" => $id,
-                "fName" => $fName,
-                "lName" => $lName,
-                "phoneNo" => $phoneNo
+                "gName" => $gName,
             );
-            $url = "http://localhost:8080/HospitalityResort/user/update/userRegister";
+            $url = "http://localhost:8080/HospitalityResort/golf/update/golfRegister";
             $request = Requests::post($url, array('Content-type' => 'application/json'), json_encode($params));
             $data = json_decode($request->body);
         }catch(Exception $e){
@@ -56,7 +49,7 @@ class userFunctions {
 
     public function delete($id){
         try{
-            $url = "http://localhost:8080/HospitalityResort/user/delete/{$id}";
+            $url = "http://localhost:8080/HospitalityResort/golf/delete/{$id}";
             $request = Requests::get($url, array('Content-type' => 'application/json'));
             $data = json_decode($request->body);           
         }catch(Exception $e){
