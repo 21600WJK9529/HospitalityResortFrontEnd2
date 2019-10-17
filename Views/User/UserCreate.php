@@ -9,7 +9,7 @@
     </head>
     
     <?php
-include 'UserIndex.php'
+include '../../Header.php'
 ?>
 <body>
 <div class="bg"></div>

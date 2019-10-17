@@ -1,10 +1,15 @@
 <?php
-
 require_once ("../../vendor/autoload.php");
 //"id","fName", "lName","email","facility","phoneNo"
 class MaintenanceFunctions {
-    
-    public function create($id,$fName,$lName,$email,$facility,$phoneNo){
+    // private $user ="";
+    // private $admin ="admin";
+    // private $password="password";
+    // function __construct()
+    // {
+    //     $this->user = $_SESSION['role'];
+    // }
+    function create($id,$fName,$lName,$email,$facility,$phoneNo){
         try{
             $params = array(
                 "id" => $id,
@@ -15,17 +20,25 @@ class MaintenanceFunctions {
                 "phoneNo" => $phoneNo
             );
             $url = "http://localhost:8080/HospitalityResort/maintenance/create/maintenanceRegister";
-            $request = Requests::post($url, array('Content-type' => 'application/json'), json_encode($params));
+            $options = array(
+                'auth' => new Requests_Auth_Basic(array($this->user, 'password'))
+            );
+            $request = Requests::post($url, array('Content-type' => 'application/json'), json_encode($params),$options);
             $data = json_decode($request->body);
         }catch(Exception $e){
             return $e;
         }   
+        
     }
 
-    public function read($id) {
+    function read($id) {
         try{
             $url = "http://localhost:8080/HospitalityResort/maintenance/read/{$id}";
-            $request = Requests::get($url, array('Content-type' => 'application/json'));
+            $options = array(
+                'auth' => new Requests_Auth_Basic(array('user', 'password'))
+            );
+            Requests::get($url, array(), $options);
+            $request = Requests::get($url, array('Content-type' => 'application/json'), $options);
             $data = json_decode($request->body);           
         }catch(Exception $e){
             return $e;
@@ -42,7 +55,7 @@ class MaintenanceFunctions {
         exit;
     }
 
-    public function update($id,$fName,$lName,$email,$facility,$phoneNo){
+    function update($id,$fName,$lName,$email,$facility,$phoneNo){
         try{
             $params = array(
                 "id" => $id,
@@ -53,18 +66,25 @@ class MaintenanceFunctions {
                 "phoneNo" => $phoneNo
             );
             $url = "http://localhost:8080/HospitalityResort/maintenance/update/maintenanceRegister";
-            $request = Requests::post($url, array('Content-type' => 'application/json'), json_encode($params));
+            $options = array(
+                'auth' => new Requests_Auth_Basic(array('admin', 'password'))
+            );
+            $request = Requests::post($url, array('Content-type' => 'application/json'), json_encode($params),$options);
             $data = json_decode($request->body);
         }catch(Exception $e){
             return $e;
         }
     }
 
-    public function delete($id){
+    function delete($id){
         try{
             $url = "http://localhost:8080/HospitalityResort/maintenance/delete/{$id}";
-            $request = Requests::get($url, array('Content-type' => 'application/json'));
-            $data = json_decode($request->body);           
+            $options = array(
+                'auth' => new Requests_Auth_Basic(array('admin', 'password'))
+            );
+            $request = Requests::post($url, array('Content-type' => 'application/json'), json_encode($id),$options);
+            $data = json_decode($request->body);   
+                               
         }catch(Exception $e){
             return $e;
         }      

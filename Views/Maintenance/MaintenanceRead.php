@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="http://localhost/practice/PHP/assets/css/style.css">
     </head>
     <?php
-include 'MaintenanceIndex.php'
+include '../../Header.php'
 ?>
 <div class="bg"></div>
     <body>
@@ -23,14 +23,16 @@ include 'MaintenanceIndex.php'
         <div class = "form-group">
         <!--Id-->
         <label>ID:</label>
-        <input type="text" class="form-control" name="id" placeholder="id">
+        <input type="text" class="form-control" name="id" placeholder="">
         </div>
 
         <button type="submit"class="btn btn-primary">Submit</button>
         
     </form>
+
 </div>
 </body>
+
 
 <?php
 

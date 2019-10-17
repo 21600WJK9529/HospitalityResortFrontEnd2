@@ -13,7 +13,10 @@ class userFunctions {
                 "phoneNo" => $phoneNo
             );
             $url = "http://localhost:8080/HospitalityResort/user/create/user";
-            $request = Requests::post($url, array('Content-type' => 'application/json'), json_encode($params));
+            $options = array(
+                'auth' => new Requests_Auth_Basic(array('user', 'password'))
+            );
+            $request = Requests::post($url, array('Content-type' => 'application/json'), json_encode($params),$options);
             $data = json_decode($request->body);
         }catch(Exception $e){
             return $e;
@@ -23,7 +26,10 @@ class userFunctions {
     public function read($id) {
         try{
             $url = "http://localhost:8080/HospitalityResort/user/read/{$id}";
-            $request = Requests::get($url, array('Content-type' => 'application/json'));
+            $options = array(
+                'auth' => new Requests_Auth_Basic(array('user', 'password'))
+            );
+            $request = Requests::post($url, array('Content-type' => 'application/json'), json_encode($id),$options);
             $data = json_decode($request->body);           
         }catch(Exception $e){
             return $e;
@@ -38,7 +44,7 @@ class userFunctions {
         exit;
     }
 
-    public function update($id,$fName,$lName,$email,$facility,$phoneNo){
+    public function update($id,$fName,$lName,$phoneNo){
         try{
             $params = array(
                 "id" => $id,
@@ -47,7 +53,10 @@ class userFunctions {
                 "phoneNo" => $phoneNo
             );
             $url = "http://localhost:8080/HospitalityResort/user/update/userRegister";
-            $request = Requests::post($url, array('Content-type' => 'application/json'), json_encode($params));
+            $options = array(
+                'auth' => new Requests_Auth_Basic(array('user', 'password'))
+            );
+            $request = Requests::post($url, array('Content-type' => 'application/json'), json_encode($params),$options);
             $data = json_decode($request->body);
         }catch(Exception $e){
             return $e;
@@ -57,7 +66,10 @@ class userFunctions {
     public function delete($id){
         try{
             $url = "http://localhost:8080/HospitalityResort/user/delete/{$id}";
-            $request = Requests::get($url, array('Content-type' => 'application/json'));
+            $options = array(
+                'auth' => new Requests_Auth_Basic(array('user', 'password'))
+            );
+            $request = Requests::post($url, array('Content-type' => 'application/json'), json_encode($id),$options);
             $data = json_decode($request->body);           
         }catch(Exception $e){
             return $e;

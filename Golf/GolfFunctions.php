@@ -11,7 +11,10 @@ class GolfFunctions {
                 "golfName" => $golfName
             );
             $url = "http://localhost:8080/HospitalityResort/golf/create/golfCreate";
-            $request = Requests::post($url, array('Content-type' => 'application/json'), json_encode($params));
+            $options = array(
+                'auth' => new Requests_Auth_Basic(array('user', 'password'))
+            );
+            $request = Requests::post($url, array('Content-type' => 'application/json'), json_encode($params),$options);
             $data = json_decode($request->body);
         }catch(Exception $e){
             return $e;
@@ -21,8 +24,11 @@ class GolfFunctions {
     public function read($id) {
         try{
             $url = "http://localhost:8080/HospitalityResort/golf/read/{$id}";
-            $request = Requests::get($url, array('Content-type' => 'application/json'));
-            $data = json_decode($request->body);           
+            $options = array(
+                'auth' => new Requests_Auth_Basic(array('user', 'password'))
+            );
+            $request = Requests::post($url, array('Content-type' => 'application/json'), json_encode($id),$options);
+            $data = json_decode($request->body);        
         }catch(Exception $e){
             return $e;
         }   
@@ -40,7 +46,10 @@ class GolfFunctions {
                 "gName" => $gName,
             );
             $url = "http://localhost:8080/HospitalityResort/golf/update/golfRegister";
-            $request = Requests::post($url, array('Content-type' => 'application/json'), json_encode($params));
+           $options = array(
+                'auth' => new Requests_Auth_Basic(array('user', 'password'))
+            );
+            $request = Requests::post($url, array('Content-type' => 'application/json'), json_encode($params),$options);
             $data = json_decode($request->body);
         }catch(Exception $e){
             return $e;
@@ -50,8 +59,11 @@ class GolfFunctions {
     public function delete($id){
         try{
             $url = "http://localhost:8080/HospitalityResort/golf/delete/{$id}";
-            $request = Requests::get($url, array('Content-type' => 'application/json'));
-            $data = json_decode($request->body);           
+            $options = array(
+                'auth' => new Requests_Auth_Basic(array('user', 'password'))
+            );
+            $request = Requests::post($url, array('Content-type' => 'application/json'), json_encode($id),$options);
+            $data = json_decode($request->body);                      
         }catch(Exception $e){
             return $e;
         }      

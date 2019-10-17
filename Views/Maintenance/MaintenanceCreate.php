@@ -9,7 +9,7 @@
     </head>
     
     <?php
-include 'MaintenanceIndex.php'
+include '../../Header.php'
 ?>
 <body>
 <div class="bg"></div>
@@ -71,5 +71,4 @@ $phoneNo = $_POST['phoneNo'];
 
 $obj = new MaintenanceFunctions();
 $obj->create($id, $fName, $lName, $email, $facility, $phoneNo);
-
 ?>

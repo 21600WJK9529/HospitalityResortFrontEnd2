@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="http://localhost/practice/PHP/assets/css/style.css">
     </head>
     <?php
-include 'UserIndex.php'
+include '../../Header.php'
 ?>
 
 <div class="bg"></div>

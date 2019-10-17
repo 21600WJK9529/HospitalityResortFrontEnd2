@@ -7,7 +7,10 @@
         <link rel="icon" href="http://example.com/favicon.png"><!--Icon for tab in browser-->
     </head>
 <?php
-include '/Header.php'
+// session_start();
+ include '/Header.php';
+// $_SESSION['role'] = $_GET['user'];
+// exit;
 ?>
     <body style="background-image:url('original.jpg'); background-repeat: no-repeat; background-size: cover">
         <div class="container" >
