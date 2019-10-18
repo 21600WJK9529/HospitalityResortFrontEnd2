@@ -13,7 +13,7 @@
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
     <li class="nav-item">
-        <a class="nav-link" href="http://localhost/practice/php/index.php">Home</a>
+        <a class="nav-link" href="http://localhost/practice/php2/index.php">Home</a>
       </li>
       
     <li class="nav-item dropdown">
@@ -21,10 +21,10 @@
           Maintenance
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="http://localhost/practice/php/Views/Maintenance/MaintenanceCreate.php">Create</a>
-          <a class="dropdown-item" href="http://localhost/practice/php/Views/Maintenance/MaintenanceRead.php">Read</a>
-          <a class="dropdown-item" href="http://localhost/practice/php/Views/Maintenance/MaintenanceUpdate.php">Update</a>
-          <a class="dropdown-item" href="http://localhost/practice/php/Views/Maintenance/MaintenanceDelete.php">Delete</a>
+          <!--<a class="dropdown-item" href="http://localhost/practice/php/Views/Maintenance/MaintenanceCreate.php">Create</a>-->
+          <a class="dropdown-item" href="http://localhost/practice/php2/Views/Maintenance/MaintenanceRead.php">Read</a>
+          <!--<a class="dropdown-item" href="http://localhost/practice/php/Views/Maintenance/MaintenanceUpdate.php">Update</a>-->
+         <!-- <a class="dropdown-item" href="http://localhost/practice/php/Views/Maintenance/MaintenanceDelete.php">Delete</a>-->
         </div>
         </li>
 
@@ -33,10 +33,10 @@
           Reception
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="http://localhost/practice/php/Views/Reception/ReceptionCreate">Create</a>
-          <a class="dropdown-item" href="http://localhost/practice/php/Views/Reception/ReceptionRead">Read</a>
-          <a class="dropdown-item" href="http://localhost/practice/php/Views/Reception/ReceptionUpdate">Update</a>
-          <a class="dropdown-item" href="http://localhost/practice/php/Views/Reception/ReceptionDelete">Delete</a>
+          <!--<a class="dropdown-item" href="http://localhost/practice/php2/Views/Reception/ReceptionCreate">Create</a>-->
+          <a class="dropdown-item" href="http://localhost/practice/php2/Views/Reception/ReceptionRead">Read</a>
+          <!--<a class="dropdown-item" href="http://localhost/practice/php2/Views/Reception/ReceptionUpdate">Update</a>-->
+          <!--<a class="dropdown-item" href="http://localhost/practice/php2/Views/Reception/ReceptionDelete">Delete</a>-->
         </div>
         </li>
 
@@ -45,10 +45,10 @@
           User
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="http://localhost/practice/php/Views/User/UserCreate">Create</a>
-          <a class="dropdown-item" href="http://localhost/practice/php/Views/User/UserRead">Read</a>
-          <a class="dropdown-item" href="http://localhost/practice/php/Views/User/UserUpdate">Update</a>
-          <a class="dropdown-item" href="http://localhost/practice/php/Views/User/UserDelete">Delete</a>
+          <!--<a class="dropdown-item" href="http://localhost/practice/php2/Views/User/UserCreate">Create</a>
+          <a class="dropdown-item" href="http://localhost/practice/php2/Views/User/UserUpdate">Update</a>
+          <a class="dropdown-item" href="http://localhost/practice/php2/Views/User/UserDelete">Delete</a>-->
+          <a class="dropdown-item" href="http://localhost/practice/php2/Views/User/UserRead">Read</a>
         </div>
         </li>
 
@@ -58,10 +58,10 @@
         </a>
 
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="http://localhost/practice/php/Views/Golf/GolfCreate">Create</a>
-          <a class="dropdown-item" href="http://localhost/practice/php/Views/Golf/GolfRead">Read</a>
-          <a class="dropdown-item" href="http://localhost/practice/php/Views/Golf/GolfUpdate">Update</a>
-          <a class="dropdown-item" href="http://localhost/practice/php/Views/Golf/GolfDelete">Delete</a>
+          <!--<a class="dropdown-item" href="http://localhost/practice/php2/Views/Golf/GolfCreate">Create</a>
+          <a class="dropdown-item" href="http://localhost/practice/php2/Views/Golf/GolfUpdate">Update</a>
+          <a class="dropdown-item" href="http://localhost/practice/php2/Views/Golf/GolfDelete">Delete</a>-->
+          <a class="dropdown-item" href="http://localhost/practice/php2/Views/Golf/GolfRead">Read</a>
         </div>
 
         </li>

@@ -1,14 +1,9 @@
 <?php
 require_once ("../../vendor/autoload.php");
+include ("../../Auth/Auth.php");
 //"id","fName", "lName","email","facility","phoneNo"
+session_start();
 class MaintenanceFunctions {
-    // private $user ="";
-    // private $admin ="admin";
-    // private $password="password";
-    // function __construct()
-    // {
-    //     $this->user = $_SESSION['role'];
-    // }
     function create($id,$fName,$lName,$email,$facility,$phoneNo){
         try{
             $params = array(
@@ -21,7 +16,7 @@ class MaintenanceFunctions {
             );
             $url = "http://localhost:8080/HospitalityResort/maintenance/create/maintenanceRegister";
             $options = array(
-                'auth' => new Requests_Auth_Basic(array($this->user, 'password'))
+                'auth' => new Requests_Auth_Basic('user', 'password')
             );
             $request = Requests::post($url, array('Content-type' => 'application/json'), json_encode($params),$options);
             $data = json_decode($request->body);
@@ -50,7 +45,6 @@ class MaintenanceFunctions {
         echo nl2br("Email:   $data[3].\n\r");
         echo nl2br("Facility:$data[4].\n\r");
         echo nl2br("PhoneNo: $data[5].\n\r");
-        ;
                 
         exit;
     }
@@ -67,7 +61,7 @@ class MaintenanceFunctions {
             );
             $url = "http://localhost:8080/HospitalityResort/maintenance/update/maintenanceRegister";
             $options = array(
-                'auth' => new Requests_Auth_Basic(array('admin', 'password'))
+                'auth' => new Requests_Auth_Basic(array('user', 'password'))
             );
             $request = Requests::post($url, array('Content-type' => 'application/json'), json_encode($params),$options);
             $data = json_decode($request->body);
@@ -80,7 +74,7 @@ class MaintenanceFunctions {
         try{
             $url = "http://localhost:8080/HospitalityResort/maintenance/delete/{$id}";
             $options = array(
-                'auth' => new Requests_Auth_Basic(array('admin', 'password'))
+                'auth' => new Requests_Auth_Basic(array('user', 'password'))
             );
             $request = Requests::post($url, array('Content-type' => 'application/json'), json_encode($id),$options);
             $data = json_decode($request->body);   
