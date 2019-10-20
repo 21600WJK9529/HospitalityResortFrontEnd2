@@ -1,8 +1,14 @@
+<head>
+        <title>User</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="http://localhost/practice/PHP2/assets/css/style.css">
+    </head>
 <?php
 
 require_once ("../../vendor/autoload.php");
 //"id","fName", "lName","email","facility","phoneNo"
-class userFunctions {
+class UserFunctions {
     
     public function create($id,$fName,$lName,$phoneNo){
         try{
@@ -23,23 +29,40 @@ class userFunctions {
         }   
     }
 
-    public function read($id) {
+    function read($id) {
         try{
             $url = "http://localhost:8080/HospitalityResort/user/read/{$id}";
             $options = array(
                 'auth' => new Requests_Auth_Basic(array('user', 'password'))
             );
-            $request = Requests::post($url, array('Content-type' => 'application/json'), json_encode($id),$options);
-            $data = json_decode($request->body);           
+            Requests::get($url, array(), $options);
+            $request = Requests::get($url, array('Content-type' => 'application/json'),$options);
+            $data = json_decode($request->body, true);           
         }catch(Exception $e){
             return $e;
         }   
+  
+        echo "<div style='margin-left:8.5% ; max-width:83%; opacity: 0.93'>";
+        echo "<table class='table table-bordered table-dark'>";
+        echo "<thead>";
+        echo "<tr>";
+        echo "<th>Id</th>";
+        echo "<th>Name</th>";
+        echo "<th>Surname</th>";
+        echo "<th>PhoneNo</th>";
+        echo "</tr>";
+        echo "</thead>";
+        echo "<tbody>";
+        echo "<tr>";
+        echo "<td>$data[0]</td>";
+        echo "<td>$data[1]</td>";
+        echo "<td>$data[2]</td>";
+        echo "<td>$data[3]</td>";
+        echo "</tr>";
+        echo "</tbody>";
+        echo "</table>";
+        echo "</div>";
         
-        echo nl2br("Id:      $data[0] \n\r");
-        echo nl2br("Name:    $data[1] \n\r");
-        echo nl2br("Surname: $data[2] \n\r");
-        echo nl2br("PhoneNo: $data[3].\n\r");
-        ;
                 
         exit;
     }
@@ -69,7 +92,7 @@ class userFunctions {
             $options = array(
                 'auth' => new Requests_Auth_Basic(array('user', 'password'))
             );
-            $request = Requests::post($url, array('Content-type' => 'application/json'), json_encode($id),$options);
+            $request = Requests::get($url, array('Content-type' => 'application/json'), $options);
             $data = json_decode($request->body);           
         }catch(Exception $e){
             return $e;

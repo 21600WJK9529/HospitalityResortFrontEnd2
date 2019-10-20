@@ -1,8 +1,13 @@
+<head>
+        <title>Maintenance</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="http://localhost/practice/PHP2/assets/css/style.css">
+    </head>
 <?php
 require_once ("../../vendor/autoload.php");
-include ("../../Auth/Auth.php");
 //"id","fName", "lName","email","facility","phoneNo"
-session_start();
+
 class MaintenanceFunctions {
     function create($id,$fName,$lName,$email,$facility,$phoneNo){
         try{
@@ -16,7 +21,7 @@ class MaintenanceFunctions {
             );
             $url = "http://localhost:8080/HospitalityResort/maintenance/create/maintenanceRegister";
             $options = array(
-                'auth' => new Requests_Auth_Basic('user', 'password')
+                'auth' => new Requests_Auth_Basic(array('user', 'password'))
             );
             $request = Requests::post($url, array('Content-type' => 'application/json'), json_encode($params),$options);
             $data = json_decode($request->body);
@@ -34,18 +39,47 @@ class MaintenanceFunctions {
             );
             Requests::get($url, array(), $options);
             $request = Requests::get($url, array('Content-type' => 'application/json'), $options);
-            $data = json_decode($request->body);           
+            $data = json_decode($request->body,true);           
         }catch(Exception $e){
             return $e;
         }   
-        
-        echo nl2br("Id:      $data[0] \n\r");
-        echo nl2br("Name:    $data[1] \n\r");
-        echo nl2br("Surname: $data[2] \n\r");
-        echo nl2br("Email:   $data[3].\n\r");
-        echo nl2br("Facility:$data[4].\n\r");
-        echo nl2br("PhoneNo: $data[5].\n\r");
-                
+        if(count($data)==6){
+            echo "<div style='margin-left:8.5% ; max-width:83%; opacity: 0.93'>";
+            echo "<table id='test' class='table table-bordered table-dark'>";
+            echo "<thead>";
+            echo "<tr>";
+            echo "<th>Id</th>";
+            echo "<th>Name</th>";
+            echo "<th>Surname</th>";
+            echo "<th>Email</th>";
+            echo "<th>Facility</th>";
+            echo "<th>PhoneNo</th>";
+            echo "</tr>";
+            echo "</thead>";
+            echo "<tbody>";
+            echo "<tr>";
+            echo "<td>$data[0]</td>";
+            echo "<td>$data[1]</td>";
+            echo "<td>$data[2]</td>";
+            echo "<td>$data[3]</td>";
+            echo "<td>$data[4]</td>";
+            echo "<td>$data[5]</td>";
+            echo "</tr>";
+            echo "</tbody>";
+            echo "</table>";
+            echo "</div>";   
+
+         }else{
+            echo "<div style='margin-left:8.5% ; max-width:83%; opacity: 0.93'>";
+            echo "<table class='table table-bordered table-dark'>";
+            echo "<thead>";
+            echo "<tr>";
+            echo "<th>Nothing found</th>";
+            echo "</tr>";
+            echo "</thead>";
+            echo "<tbody>";
+            echo "</table>";
+    }                       
         exit;
     }
 
@@ -76,7 +110,7 @@ class MaintenanceFunctions {
             $options = array(
                 'auth' => new Requests_Auth_Basic(array('user', 'password'))
             );
-            $request = Requests::post($url, array('Content-type' => 'application/json'), json_encode($id),$options);
+            $request = Requests::get($url, array('Content-type' => 'application/json'),$options);
             $data = json_decode($request->body);   
                                
         }catch(Exception $e){
@@ -84,5 +118,4 @@ class MaintenanceFunctions {
         }      
     }
 }
-
-?>
+    

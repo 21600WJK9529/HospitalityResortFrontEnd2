@@ -37,15 +37,42 @@ class ReceptionFunctions {
             return $e;
         }   
         
-        echo nl2br("Id:      $data[0] \n\r");
-        echo nl2br("Name:    $data[1] \n\r");
-        echo nl2br("Surname: $data[2] \n\r");
-        echo nl2br("Email:   $data[3].\n\r");
-        echo nl2br("Facility:$data[4].\n\r");
-        echo nl2br("PhoneNo: $data[5].\n\r");
-        ;
-                
-        exit;
+        if(count($data)==6){
+            echo "<div style='margin-left:8.5% ; max-width:83%; opacity: 0.93'>";
+            echo "<table class='table table-bordered table-dark'>";
+            echo "<thead>";
+            echo "<tr>";
+            echo "<th>Id</th>";
+            echo "<th>Name</th>";
+            echo "<th>Surname</th>";
+            echo "<th>Email</th>";
+            echo "<th>Facility</th>";
+            echo "<th>PhoneNo</th>";
+            echo "</tr>";
+            echo "</thead>";
+            echo "<tbody>";
+            echo "<tr>";
+            echo "<td>$data[0]</td>";
+            echo "<td>$data[1]</td>";
+            echo "<td>$data[2]</td>";
+            echo "<td>$data[3]</td>";
+            echo "<td>$data[4]</td>";
+            echo "<td>$data[5]</td>";
+            echo "</tr>";
+            echo "</tbody>";
+            echo "</table>";
+            echo "</div>";      
+        }else{
+            echo "<div style='margin-left:8.5% ; max-width:83%; opacity: 0.93'>";
+            echo "<table class='table table-bordered table-dark'>";
+            echo "<thead>";
+            echo "<tr>";
+            echo "<th>Nothing found</th>";
+            echo "</tr>";
+            echo "</thead>";
+            echo "<tbody>";
+            echo "</table>";
+    }           
     }
 
     public function update($id,$fName,$lName,$email,$facility,$phoneNo){

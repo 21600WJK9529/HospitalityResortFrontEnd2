@@ -18,7 +18,7 @@ include '../../Header.php'
     <h2>
     Create course
     </h2>
-    <form method="post" action="#">
+    <form method="post" action="#" name="myForm" onsubmit="return validateForm()">
         <div class = "form-group">
         <!--Id-->
         <label>Course ID:</label>
@@ -36,13 +36,17 @@ include '../../Header.php'
     </form>
 </div>
 </body>
-<?php
-$golfID = $golfName = "";
-    
-$golfID = $_POST['golfID'];
-$golfName = $_POST['golfName'];
-
-$obj = new GolfFunctions();
-$obj->create($golfID,$golfName);
-
-?>
+<script>
+function validateForm() {
+  var x = document.forms["myForm"]["golfID"].value;
+  var y = document.forms["myForm"]["golfName"].value;
+  if (x == "") {
+    alert("ID is required");
+    return false;
+  }
+  if (y == "") {
+    alert("Please provide the course name");
+    return false;
+  }
+}
+</script>

@@ -24,13 +24,6 @@ include '../../Header.php'
         <input type="text" class="form-control" name="id" placeholder="id">
         </div>
 
-        <div class = "form-group">
-        <!--Course name-->
-        <label>Course name:</label>
-        <input type="text" class="form-control"  name="gName" placeholder="gName"> <br>
-        </div>
-
-
         <button type="submit"class="btn btn-primary">Submit</button>
         
     </form>

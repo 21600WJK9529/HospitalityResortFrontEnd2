@@ -1,16 +1,26 @@
+<head>
+        <title>Reception</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="http://localhost/practice/PHP2/assets/css/style.css">
+    </head>
 <?php
 
 require_once ("../../vendor/autoload.php");
 //"id","fName", "lName","email","facility","phoneNo"
-class GolfFunctions {
+class ReceptionFunctions {
     
-    public function create($golfID,$golfName){
+    public function create($id,$fName,$lName,$email,$facility,$phoneNo){
         try{
             $params = array(
-                "golfID" => $golfID,
-                "golfName" => $golfName
+                "id" => $id,
+                "fName" => $fName,
+                "lName" => $lName,
+                "email" => $email,
+                "facility" => $facility,
+                "phoneNo" => $phoneNo
             );
-            $url = "http://localhost:8080/HospitalityResort/golf/create/golfCreate";
+            $url = "http://localhost:8080/HospitalityResort/reception/create/receptionRegister";
             $options = array(
                 'auth' => new Requests_Auth_Basic(array('user', 'password'))
             );
@@ -23,30 +33,57 @@ class GolfFunctions {
 
     public function read($id) {
         try{
-            $url = "http://localhost:8080/HospitalityResort/golf/read/{$id}";
+            $url = "http://localhost:8080/HospitalityResort/reception/read/{$id}";
             $options = array(
                 'auth' => new Requests_Auth_Basic(array('user', 'password'))
             );
-            $request = Requests::post($url, array('Content-type' => 'application/json'), json_encode($id),$options);
-            $data = json_decode($request->body);        
+            Requests::get($url, array(), $options);
+            $request = Requests::get($url, array('Content-type' => 'application/json'),$options);
+            $data = json_decode($request->body, true);           
         }catch(Exception $e){
             return $e;
         }   
-        echo nl2br("Id:      $data[0] \n\r");
-        echo nl2br("Name:    $data[1] \n\r");
-        ;
+        echo "<div style='margin-left:8.5% ; max-width:83%; opacity: 0.93'>";
+        echo "<table class='table table-bordered table-dark'>";
+        echo "<thead>";
+        echo "<tr>";
+        echo "<th>Id</th>";
+        echo "<th>Name</th>";
+        echo "<th>Surname</th>";
+        echo "<th>Email</th>";
+        echo "<th>Facility</th>";
+        echo "<th>PhoneNo</th>";
+        echo "</tr>";
+        echo "</thead>";
+        echo "<tbody>";
+        echo "<tr>";
+        echo "<td>$data[0]</td>";
+        echo "<td>$data[1]</td>";
+        echo "<td>$data[2]</td>";
+        echo "<td>$data[3]</td>";
+        echo "<td>$data[4]</td>";
+        echo "<td>$data[5]</td>";
+        echo "</tr>";
+        echo "</tbody>";
+        echo "</table>";
+        echo "</div>";      
+        
                 
         exit;
     }
 
-    public function update($id,$gName){
+    public function update($id,$fName,$lName,$email,$facility,$phoneNo){
         try{
             $params = array(
                 "id" => $id,
-                "gName" => $gName,
+                "fName" => $fName,
+                "lName" => $lName,
+                "email" => $email,
+                "facility" => $facility,
+                "phoneNo" => $phoneNo
             );
-            $url = "http://localhost:8080/HospitalityResort/golf/update/golfRegister";
-           $options = array(
+            $url = "http://localhost:8080/HospitalityResort/reception/update/receptionRegister";
+            $options = array(
                 'auth' => new Requests_Auth_Basic(array('user', 'password'))
             );
             $request = Requests::post($url, array('Content-type' => 'application/json'), json_encode($params),$options);
@@ -58,12 +95,12 @@ class GolfFunctions {
 
     public function delete($id){
         try{
-            $url = "http://localhost:8080/HospitalityResort/golf/delete/{$id}";
+            $url = "http://localhost:8080/HospitalityResort/reception/delete/{$id}";
             $options = array(
                 'auth' => new Requests_Auth_Basic(array('user', 'password'))
             );
-            $request = Requests::post($url, array('Content-type' => 'application/json'), json_encode($id),$options);
-            $data = json_decode($request->body);                      
+            $request = Requests::get($url, array('Content-type' => 'application/json'),$options);
+            $data = json_decode($request->body);         
         }catch(Exception $e){
             return $e;
         }      
